@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+Olá! Primeiro desculpe a demora hehe.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#1: A primeira tela voce coloca teu nome e aperta ENTER, que irá setar um cookie 'auth' e pegar o nome inserido no primeiro participante.
+#1.1: As rotas são `create_token` e `meeting`.
+#1.2: Acabei não usando contexto.
+#1.3: Usei tailwindcss e MaterialUI. Acabei não usando antd e styled components (não sou fã deste ultimo).
 
-## Available Scripts
+#2: Para adicionar mais participantes, aperte F2.
 
-In the project directory, you can run:
+#3º: Para limpar os cookies, aperte F4.
 
-### `yarn start`
+`src/index.tsx`
+Aqui se encontra o root da aplicação e tem o event de adicionar player e remover cookie.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`src/pages/createToken`
+Pagina para colocar o nome e criar o tooken
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`src/pages/meeting`
+Onde está os "players" que estão na reunião e o evento de invocar o modal e o controle de abrir fechar o modal. O modal é o novo "player" pedindo para entrar.
 
-### `yarn test`
+`src/components/Player`
+É o "player" dentro da meeting.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`src/components/NovoPlayer`
+É o modal de novo player pedindo para entrar.
 
-### `yarn build`
+`src/routes/Routes`
+Onde estão as rotas.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`src/hooks/useCookies`
+Para usar os cookies.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+`src/hooks/useMeetingState`
+Controle de estado da "meeting", onde salva os itens no session e recupera quando dá reload.
